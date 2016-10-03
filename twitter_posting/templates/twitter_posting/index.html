@@ -1,0 +1,47 @@
+ {% extends 'twitter_posting/base.html' %}
+ {% load staticfiles %}
+
+#ADD USER AUTH
+
+ <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="alert alert-info" role="alert">
+      Hi {{request.user}}, let's chat.
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h4>Most recent posts</h4>
+    </div>
+  </div>
+{% for tweet in tweets %}
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+
+<!-- start panel -->
+    <div class="panel panel-default">
+
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          {{tweet.user}}  | 
+          <small>{{tweet.date}}</small>
+        </h3>
+      </div>
+      <div class="user-message-body-wrapper">
+        <div class="panel-body">
+          {{tweet}}
+        </div>
+      </div>
+    </div>
+      
+<!-- end panel -->
+    </div>
+  </div>
+
+{% endfor %}
+
+
